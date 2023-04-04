@@ -1,0 +1,63 @@
+#smn_notice_form{
+    overflow:hidden;
+}
+.smn_fields,
+.smn_shortcode {
+    width: 49%;
+    border-right: 1px solid #ebebeb;
+    padding-right:10px;
+    float:left;
+    overflow:hidden;
+}
+.smn_shortcode {
+    border-right: 0px solid #ebebeb;
+    padding-right:0px;
+    padding-left: 10px;
+}
+.wrap.simple-notice form {
+    padding: 10px;
+    background-color: #fff;
+    margin-top: 10px;
+    padding-bottom: 0;
+    border-top: 5px solid #46b76e;
+}
+.smn_group {
+    margin-top: 12px;
+}
+.smn_group label {
+    display: table;
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.smn_group input[type="text"] {
+    width: 100%;
+    height: 30px;
+}
+select#smn_select_post {
+    width: 100%;
+}
+.option_posts {
+    font-size: 17px;
+    font-weight: 700;
+    pointer-events: none;
+    padding: 5px;
+    border-bottom: 1px solid;
+}
+#smn_notice_form .button.button-primary {
+    background: #46b76e;
+    border-color: inherit;
+    box-shadow: 0 0 0 0;
+    height: 45px;
+    font-size: 15px;
+    margin-top: 20px;
+    width: 100%;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 0;
+    transition:0.3s;
+}
+#smn_notice_form .button.button-primary:hover {
+    background-color: #403b8c;
+}
