@@ -15,6 +15,11 @@
  
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+// Define plugin version constant
+if ( ! defined( 'SMN_VERSION' ) ) {
+    define( 'SMN_VERSION', '1.0' );
+}
+
 /***************************
 * Includes
 ***************************/
@@ -23,13 +28,15 @@ include( plugin_dir_path( __FILE__ ) . '/inc/admin-options.php' );
 include( plugin_dir_path( __FILE__ ) . '/inc/shortcode.php' );
 
 
-// Add settigns page link to plugin page
-function smn_plugin_action_links( $links ){
-    
-    $links = array_merge( array(
-		'<a href="' . esc_url( admin_url( '/options-general.php?page=smn_notice' ) ) . '">' . __( 'Settings', 'smn_notice' ) . '</a>'
-	), $links );
+/**
+ * Add settings page link to plugin actions.
+ *
+ * @param array $links An array of plugin action links.
+ * @return array An array of plugin action links.
+ */
+function smn_plugin_action_links( $links ) {
+    $settings_link = '<a href="' . esc_url( admin_url( '/options-general.php?page=smn_notice' ) ) . '">' . __( 'Settings', 'smn_notice' ) . '</a>';
+    array_unshift( $links, $settings_link );
     return $links;
-    
 }
 add_action( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'smn_plugin_action_links' );

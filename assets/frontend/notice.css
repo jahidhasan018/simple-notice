@@ -1,45 +1,87 @@
-/* The snackbar - position it at the bottom and in the middle of the screen */
-#snackbar {
-  visibility: hidden; /* Hidden by default. Visible on click */
-  min-width: 250px; /* Set a default minimum width */
-  margin-left: -125px; /* Divide value of min-width by 2 */
-  background-color: #333; /* Black background color */
-  color: #fff; /* White text color */
-  text-align: center; /* Centered text */
-  border-radius: 2px; /* Rounded borders */
-  padding: 16px; /* Padding */
-  position: fixed; /* Sit on top of the screen */
-  z-index: 1; /* Add a z-index if needed */
-  left: 50%; /* Center the snackbar */
-  bottom: 30px; /* 30px from the bottom */
+/* Styles for Simple Notice Plugin (notify.js integration) */
+
+/* Base styling for all notify.js elements used by this plugin */
+/* Ensures consistent box-sizing. */
+.notifyjs-corner div[class*="notifyjs-"][class*="-base"],
+.notifyjs-wrapper div[class*="notifyjs-"][class*="-base"] {
+    box-sizing: border-box;
+    min-height: 32px; /* Ensure a minimum height for notices */
+    line-height: 1.4; /* Improve readability */
+    padding: 10px 15px; /* Default padding */
 }
 
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
-#snackbar.show {
-  visibility: visible; /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
-  However, delay the fade out process for 2.5 seconds */
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+/* Type-specific styles */
+/* These styles are applied when a 'className' (info, success, etc.) is added to the notification. */
+/* They primarily define background, left border, and adjust left padding for the border. */
+
+/* Info */
+.notifyjs-bootstrap-base.info,
+.notifyjs-happyblue-base.info, /* Assuming happyblue creates this base class */
+.notifyjs-blackBg-base.info    /* Assuming blackBg creates this base class */
+{
+  background-color: #e6f7ff;
+  border-left: 5px solid #91d5ff !important; /* Keep border prominent */
+  /* color: #000; */ /* Removed to allow base style or custom color to dictate text color */
+  padding-left: 20px !important; /* Increased padding for border and potential icon */
 }
 
-/* Animations to fade the snackbar in and out */
-@-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
+/* Success */
+.notifyjs-bootstrap-base.success,
+.notifyjs-happyblue-base.success,
+.notifyjs-blackBg-base.success
+{
+  background-color: #f6ffed;
+  border-left: 5px solid #b7eb8f !important;
+  /* color: #000; */
+  padding-left: 20px !important;
 }
 
-@keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+/* Warning */
+.notifyjs-bootstrap-base.warning,
+.notifyjs-happyblue-base.warning,
+.notifyjs-blackBg-base.warning
+{
+  background-color: #fffbe6;
+  border-left: 5px solid #ffe58f !important;
+  /* color: #000; */
+  padding-left: 20px !important;
 }
 
-@-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
+/* Error */
+.notifyjs-bootstrap-base.error,
+.notifyjs-happyblue-base.error,
+.notifyjs-blackBg-base.error
+{
+  background-color: #fff1f0;
+  border-left: 5px solid #ffccc7 !important;
+  /* color: #000; */
+  padding-left: 20px !important;
 }
 
-@keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+/* Icon Styles */
+.simple-notice-bar-icon {
+  display: inline-block; /* Helps with vertical alignment and spacing */
+  margin-right: 8px;    /* Space between icon and text */
+  vertical-align: middle;/* Align icon with text, works better with inline-block */
+  font-size: 1.2em;     /* Slightly larger icon, adjust as needed */
+  line-height: 1;       /* Prevent icon from increasing line height of the text */
 }
+
+/* Ensure Dashicons display correctly within the icon span */
+.simple-notice-bar-icon.dashicons::before {
+    /* vertical-align: middle; */ /* Already on parent */
+    /* line-height: inherit; */ /* Already on parent */
+    /* font-size: inherit; */ /* Let parent control size if needed, or set specific if dashicon needs scaling */
+}
+
+/*
+  Note on !important:
+  - `border-left: ... !important;` is kept to ensure the type's visual cue (border) is prominent
+    and overrides any border settings from the base notify.js themes if they conflict.
+  - `padding-left: ... !important;` is used to ensure enough space for the border and icon,
+    overriding potentially smaller padding from base notify.js themes.
+  - Custom colors for background and text are applied via JavaScript's .css() method,
+    which acts like inline styles and will override these CSS rules without needing !important on the JS side.
+    The removal of `color: #000;` from the type styles allows base themes (like blackBg)
+    or custom text colors to apply correctly.
+*/

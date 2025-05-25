@@ -3,19 +3,28 @@
     
     $(document).ready(function () {
         
-        // Show autoHide delay input
-        var default_hide =  $('#smn_hide').val();
-        if( default_hide == 2 ){
-            $('#smn_delay_field').hide();
-        }
-        $('#smn_hide').on('change', function() {
-            var value = this.value;
-            if( value == 1 ){
-                $('#smn_delay_field').show();
-            }else{
-                $('#smn_delay_field').hide();
+        // Conditional display for Auto Hide Delay field
+        var $hideBehaviorSelect = $('#smn_hide');
+        var $delayFieldWrapper = $('#smn_delay_field'); 
+
+        function toggleDelayField() {
+            if ($hideBehaviorSelect.val() === '1') { // '1' for Auto Hide
+                $delayFieldWrapper.slideDown(); // Use slideDown for a nicer effect
+            } else {
+                $delayFieldWrapper.slideUp();   // Use slideUp for a nicer effect
             }
-        });
+        }
+
+        // Initial check on page load
+        toggleDelayField();
+
+        // Bind change event
+        $hideBehaviorSelect.on('change', toggleDelayField);
+
+        // Initialize WordPress color picker
+        if (typeof $.fn.wpColorPicker === 'function') {
+            $('.smn-color-picker').wpColorPicker();
+        }
         
     });
     
