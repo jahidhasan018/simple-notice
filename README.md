@@ -34,3 +34,13 @@ Use the shortcode below to trigger a notice from a button:
 - `hide`: `auto` or `click`.
 - `position`: One of the positions from the settings page.
 - `style`: `bootstrap`, `happyblue`, or `blackBg`.
+
+## Testing
+
+Install dev dependencies and run PHPUnit:
+
+```
+composer install
+composer test
+```
+=======
