@@ -26,6 +26,7 @@ define( 'SMN_NOTICE_URL', plugin_dir_url( __FILE__ ) );
 include SMN_NOTICE_PATH . 'inc/script.php';
 include SMN_NOTICE_PATH . 'inc/admin-options.php';
 include SMN_NOTICE_PATH . 'inc/shortcode.php';
+include SMN_NOTICE_PATH . 'inc/blocks.php';
 
 /**
  * Load plugin textdomain for translations.

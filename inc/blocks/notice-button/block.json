@@ -1,0 +1,37 @@
+{
+  "apiVersion": 2,
+  "name": "simple-notice/notice-button",
+  "title": "Simple Notice Button",
+  "category": "widgets",
+  "icon": "megaphone",
+  "description": "Insert a button that triggers a Simple Notice.",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "default": "Your button text"
+    },
+    "url": {
+      "type": "string",
+      "default": "#"
+    },
+    "class": {
+      "type": "string",
+      "default": "smn-notice-btn"
+    },
+    "hide": {
+      "type": "string",
+      "default": "auto"
+    },
+    "position": {
+      "type": "string",
+      "default": "top center"
+    },
+    "style": {
+      "type": "string",
+      "default": "bootstrap"
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}

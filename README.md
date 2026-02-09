@@ -11,6 +11,7 @@ Simple Notice is a lightweight WordPress plugin that shows a configurable notice
 - Cookie-based suppression (show again after a number of days).
 - Optional “hide on mobile” toggle.
 - Shortcode to trigger notices from buttons/links.
+- Gutenberg block for inserting notice buttons in the editor.
 
 ## Usage
 
@@ -35,6 +36,10 @@ Use the shortcode below to trigger a notice from a button:
 - `position`: One of the positions from the settings page.
 - `style`: `bootstrap`, `happyblue`, or `blackBg`.
 
+### Gutenberg block
+
+Use the **Simple Notice Button** block from the Widgets category to insert a notice-triggering button with the same options as the shortcode.
+
 ## Testing
 
 Install dev dependencies and run PHPUnit:
@@ -43,4 +48,3 @@ Install dev dependencies and run PHPUnit:
 composer install
 composer test
 ```
-=======
