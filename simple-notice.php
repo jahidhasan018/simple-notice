@@ -4,7 +4,7 @@
  * Plugin URI:  https://curetheme.com/plugins/simple-notice
  * Description: This plugin will allow you to show notice on front of your site.
  * Version:     1.0
- * Author:      CureTheme
+ * Author:      Jahid Hossain
  * Author URI:  https://curetheme.com.com/
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
